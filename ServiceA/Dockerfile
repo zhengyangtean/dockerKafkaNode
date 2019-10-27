@@ -10,5 +10,5 @@ COPY package*.json ./
 # Bundle app source
 COPY . .
 
-EXPOSE 3000
+EXPOSE 4000
 CMD [ "npm", "start"]
