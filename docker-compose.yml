@@ -57,8 +57,17 @@ services:
       - ./ServiceB/:/user/app
     depends_on:
     - servicea
+  mongo:
+    image: "mongo"
+    restart: always
+    environment:
+      MONGO_INITDB_DATABASE: "todos"
+    ports:
+      - "27017:27017"
   web:
     build:
       context: ./Web/
     volumes:
       - ./Web/:/user/app
+    depends_on:
+      - mongo
