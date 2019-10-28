@@ -47,6 +47,7 @@ services:
       - ./ServiceA/:/user/app
     depends_on:
     - kafka
+    - web
   serviceb:
     build: 
       context: ./ServiceB/
@@ -55,4 +56,9 @@ services:
     volumes:
       - ./ServiceB/:/user/app
     depends_on:
-    - kafka
+    - servicea
+  web:
+    build:
+      context: ./Web/
+    volumes:
+      - ./Web/:/user/app
